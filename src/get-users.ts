@@ -1,3 +1,4 @@
+import { createUsers } from "./utils/create-users";
 import { headers } from "./utils/headers";
 
 export async function getUsers() {
@@ -13,6 +14,7 @@ export async function getUsers() {
 
         const json = await response.json();
         console.log(json);
+        createUsers(json);
     } catch (error) {
         console.error(error.message);
     }
