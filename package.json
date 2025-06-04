@@ -1,0 +1,22 @@
+{
+  "name": "get-users",
+  "version": "1.0.0",
+  "description": "Get users in Sunvoy application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramu-narasinga/get-users.git"
+  },
+  "keywords": [
+    "get-users"
+  ],
+  "author": "Ramu Narasinga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramu-narasinga/get-users/issues"
+  },
+  "homepage": "https://github.com/ramu-narasinga/get-users#readme"
+}
