@@ -1,0 +1,4 @@
+// referred to: https://stackoverflow.com/questions/34815845/how-to-send-cookies-with-node-fetch
+export const headers = {
+    cookie: "JSESSIONID=51b320c7-b0f9-4c36-bdd2-12c69a1333bb; _csrf_token=4a2a79cd794e422716c2db4742b71eff20fa5ec3f6270cc757e9c3335a81a7c8; user_preferences=eyJ0aGVtZSI6ImxpZ2h0IiwibGFuZ3VhZ2UiOiJlbiIsInRpbWV6b25lIjoiVVRDIiwibm90aWZpY2F0aW9ucyI6dHJ1ZX0%3D; analytics_id=analytics_dbbb03d87023d69f2ff61b5f5e1619c8; session_fingerprint=4243e3967e4fa072fbfb60613c4ca8614f2b290d8b3df109e8d0ab83912752a3; feature_flags=eyJuZXdEYXNoYm9hcmQiOnRydWUsImJldGFGZWF0dXJlcyI6ZmFsc2UsImFkdmFuY2VkU2V0dGluZ3MiOnRydWUsImV4cGVyaW1lbnRhbFVJIjpmYWxzZX0%3D; tracking_consent=accepted; device_id=device_5d9be371eb7c9f8aab5fd742"
+}

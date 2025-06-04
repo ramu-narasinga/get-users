@@ -1,5 +1,5 @@
-import { createUsers } from "./utils/create-users";
-import { headers } from "./utils/headers";
+import { createUsers } from "../utils/create-users";
+import { headers } from "../utils/get-users-headers";
 
 export async function getUsers() {
     const url = "https://challenge.sunvoy.com/api/users";
