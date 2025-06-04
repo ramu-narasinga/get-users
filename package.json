@@ -4,6 +4,8 @@
   "description": "Get users in Sunvoy application",
   "main": "index.js",
   "scripts": {
+    "build": "tsup",
+    "start": "npm run build && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/ramu-narasinga/get-users/issues"
   },
-  "homepage": "https://github.com/ramu-narasinga/get-users#readme"
+  "homepage": "https://github.com/ramu-narasinga/get-users#readme",
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  }
 }
