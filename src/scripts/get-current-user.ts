@@ -1,6 +1,7 @@
-import { createUsers } from "../utils/create-users";
+import { createUsers } from "../utils/users-file/create-users";
 import { headers } from "../utils/get-current-user-headers";
 import { getSettingsPayload } from "../utils/parse-response-text";
+import { updateAuthUser } from "../utils/users-file/update-auth-user";
 
 async function callSettingsToken() {
     const url = "https://challenge.sunvoy.com/settings/tokens";
@@ -70,6 +71,7 @@ export async function getCurrentUser() {
 
         const json = await response.json();
         console.log("getCurrentUser", json);
+        updateAuthUser(json)
     } catch (error) {
         console.error(error.message);
     }

@@ -1,4 +1,4 @@
-import { createUsers } from "../utils/create-users";
+import { createUsers } from "../utils/users-file/create-users";
 import { headers } from "../utils/get-users-headers";
 
 export async function getUsers() {
