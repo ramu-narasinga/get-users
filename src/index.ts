@@ -2,8 +2,12 @@ import { getUsers } from "./scripts/get-users";
 import { getCurrentUser } from "./scripts/get-current-user";
 
 export async function init() {
-    await getUsers();
-    await getCurrentUser();
+    try {
+        await getUsers();
+        await getCurrentUser();
+    } catch(error) {
+        console.log("[init] Error encountered in init", error);
+    }
 }
 
 init();
