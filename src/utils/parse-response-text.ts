@@ -17,6 +17,7 @@ function parseResponseText(response: string) {
     let openId = $("#openId").val() as string;
     let operateId = $("#operateId").val() as string;
     let userId = $("#userId").val() as string;
+    let timestamp = Math.floor(Date.now() / 1e3).toString();
 
     return {
         access_token,
@@ -24,18 +25,17 @@ function parseResponseText(response: string) {
         language,
         openId,
         operateId,
-        userId
+        userId,
+        timestamp
     }
 }
 
 export function getSettingsPayload(response) {
     let payload = parseResponseText(response);
-    let timestamp = Math.floor(Date.now() / 1e3).toString();
     let checkcode = computeCheckCode(Object.keys(payload).sort().map(t => `${t}=${encodeURIComponent(payload[t])}`).join("&"));
     
     return {
         ...payload,
-        timestamp,
         checkcode
     }
 }

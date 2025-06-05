@@ -30,21 +30,42 @@ export async function getCurrentUser() {
 
         // Refer to: https://medium.com/deno-the-complete-reference/sending-form-data-using-fetch-in-node-js-8cedd0b2af85
         const body = new FormData();
-        body.set("access_token", payload.access_token);
-        body.set("apiuser", payload.apiuser);
-        body.set("language", payload.language);
-        body.set("openId", payload.openId);
-        body.set("operateId", payload.operateId);
-        body.set("timestamp", payload.timestamp);
-        body.set("userId", payload.userId);
-        body.set("checkcode", payload.checkcode);
+        body.append("access_token", payload.access_token);
+        body.append("apiuser", payload.apiuser);
+        body.append("language", payload.language);
+        body.append("openId", payload.openId);
+        body.append("operateId", payload.operateId);
+        body.append("timestamp", payload.timestamp);
+        body.append("userId", payload.userId);
+        body.append("checkcode", payload.checkcode);
+
+        console.log("body", body)
+
+        // Copied from: https://stackoverflow.com/a/48950600
+        const queryString = new URLSearchParams(body).toString()
+
+        console.log("queryString", queryString);
 
         const response = await fetch(url, {
             method: "POST",
-            body
+            "headers": {
+                "accept": "*/*",
+                "accept-language": "en-US,en;q=0.9",
+                "content-type": "application/x-www-form-urlencoded",
+                "priority": "u=1, i",
+                "sec-ch-ua": "\"Google Chrome\";v=\"137\", \"Chromium\";v=\"137\", \"Not/A)Brand\";v=\"24\"",
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": "\"macOS\"",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site",
+                "Referer": "https://challenge.sunvoy.com/",
+                "Referrer-Policy": "strict-origin-when-cross-origin"
+            },
+            body: queryString
         });
         if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+            throw new Error(`Response status: ${response.status} ${response.headers.get("content-type")}`);
         }
 
         const json = await response.json();
