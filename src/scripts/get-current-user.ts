@@ -1,5 +1,6 @@
 import { createUsers } from "../utils/create-users";
 import { headers } from "../utils/get-current-user-headers";
+import { parseResponseText } from "../utils/parse-response-text";
 
 async function callSettingsToken() {
     const url = "https://challenge.sunvoy.com/settings/tokens";
@@ -14,6 +15,7 @@ async function callSettingsToken() {
 
         const text = await response.text();
         console.log("callSettingsToken", text);
+        parseResponseText(text);
     } catch (error) {
         console.error(error.message);
     }
@@ -22,6 +24,8 @@ async function callSettingsToken() {
 export async function getCurrentUser() {
     const url = "https://api.challenge.sunvoy.com/api/settings";
     try {
+
+        await callSettingsToken();
 
         // Refer to: https://medium.com/deno-the-complete-reference/sending-form-data-using-fetch-in-node-js-8cedd0b2af85
         // const body = new FormData();
